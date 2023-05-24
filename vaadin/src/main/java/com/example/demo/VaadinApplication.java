@@ -30,10 +30,10 @@ import java.util.Set;
 
 @SpringBootApplication
 @Push
-public class DemoApplication implements AppShellConfigurator {
+public class VaadinApplication implements AppShellConfigurator {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(VaadinApplication.class, args);
 	}
 
 }
