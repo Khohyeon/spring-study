@@ -10,6 +10,14 @@
         <module name="vaadin" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hello" target="1.8" />
+      <module name="hello.main" target="1.8" />
+      <module name="hello.test" target="1.8" />
+      <module name="relationaldataaccess" target="17" />
+      <module name="relationaldataaccess.main" target="17" />
+      <module name="relationaldataaccess.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
