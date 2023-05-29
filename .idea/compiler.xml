@@ -10,6 +10,11 @@
         <module name="vaadin" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="graphql.hello" target="17" />
+      <module name="graphql.hello.main" target="17" />
+      <module name="graphql.hello.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
