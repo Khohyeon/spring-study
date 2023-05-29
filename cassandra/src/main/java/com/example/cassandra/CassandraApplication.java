@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SpringBootApplication
-@EnableCassandraRepositories
+//@EnableCassandraRepositories
 public class CassandraApplication {
 
     public static void main(String[] args) {

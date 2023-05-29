@@ -1,7 +1,0 @@
-management:
-  wavefront:
-    application:
-      name: demo
-      service-name: getting-started
-    api-token: ee1f454b-abcd-efgh-1234-bb449f6a25ed
-    uri: https://wavefront.surf

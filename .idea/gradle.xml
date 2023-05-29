@@ -4,6 +4,8 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/cassandra" />
         <option name="modules">
           <set>
@@ -48,6 +50,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/schedulingtasks" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-r2dbc" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/spring-r2dbc" />
           </set>
         </option>
       </GradleProjectSettings>
