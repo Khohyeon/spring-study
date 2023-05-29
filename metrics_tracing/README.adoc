@@ -1,0 +1,97 @@
+:spring_version: current
+:images: https://raw.githubusercontent.com/spring-guides/gs-tanzu-observability/main/static
+:toc:
+:icons: font
+:source-highlighter: prettify
+:project_id: gs-tanzu-observability
+
+ Tanzu Observability by Wavefront를 사용하는 가이드
+
+== What You Will build
+
+간단한 웹 애플리케이션을 생성하고, 이를 freemium 클러스터로 메트릭을 보내도록 구성할 것입니다.
+
+
+== What You need
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/prereq_editor_jdk_buildtools.adoc[]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/how_to_complete_this_guide.adoc[]
+
+[[initial]]
+== Out-of-the-Box Observability
+
+Follow these steps to start the project and to automatically send several auto-configured metrics to Tanzu Observability by Wavefront.
+
+
+. 서비스를 시작하기 전에, 응용 프로그램과 서비스에 의해 전송되는 메트릭을 식별할 수 있도록 프로젝트를 구성하세요.
+    `application.properties` 파일을 열고 다음을 추가하세요:
++
+[indent=0]
+----
+	management.wavefront.application.name=demo
+	management.wavefront.application.service-name=getting-started
+----
++
+NOTE: 위의 속성은 demo 응용 프로그램과 getting-started 서비스를 사용하여 Tanzu Observability by Wavefront로 메트릭을 전송하기 위한
+통합을 구성합니다. 응용 프로그램은 임의의 수의 마이크로서비스로 구성될 수 있습니다.
+
+스프링을 실행한 결과 표시:
++
+[indent=0]
+----
+    INFO 58371 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+    INFO 58371 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+    INFO 58371 --- [           main] hello.DemoApplication                    : Started DemoApplication in 1.705 seconds (process running for 2.038)
+
+    A Wavefront account has been provisioned successfully and the API token has been saved to disk.
+
+    To share this account, make sure the following is added to your configuration:
+
+        management.wavefront.api-token=ee1f454b-abcd-efgh-1234-bb449f6a25ed
+        management.wavefront.uri=https://wavefront.surf
+
+    Connect to your Wavefront dashboard using this one-time use link:
+    https://wavefront.surf/us/AtoKen
+----
+
+**What Happened?**
+
+* 추가 정보 없이 무료 클러스터에 대한 계정이 자동으로 생성되었습니다.
+* API 토큰이 생성되었습니다.
+* Freemium 클러스터에서 대시보드에 액세스할 수 있도록, 응용 프로그램이 시작될 때 일회용 링크가 기록되었습니다. 이 링크는 https://wavefront.surf로 시작합니다.
+이 링크를 웹 브라우저에 복사하여 기본 제공되는 Spring Boot 대시보드를 탐색하세요:
+
+image::{images}/dashboard-initial.png[Wavefront Dashboard]
+
+[NOTE]
+====
+데이터가 표시되기까지 약 1분이 소요됩니다.
+Tanzu Observability by Wavefront에서 데이터를 확인할 수 있을 때, 필터에서 **Application** 및 **Service** 이름이 application.properties 파일에서 구성한 것과 일치하는지 확인하세요.
+
+image::{images}/application_service_filters.png[**Application** and **Service** names in the filters match what you configured in the `application.properties` file.]
+====
+
+== Create a Simple Controller
+
+이제 HTTP 트래픽이 자동으로 계측되는지 확인하기 위해 간단한 컨트롤러를 생성할 수 있습니다.
+다음 목록은 그 방법을 보여줍니다:
+
+. 응용 프로그램을 다시 시작하고 브라우저에서 http://localhost:8080를 여러 번 요청합니다.
+. 대시보드에 추가된 HTTP 섹션을 확인할 수 있습니다.
+이 기능은 조건부 대시보드(conditional dashboards)라고 하며, 필터에 따라 섹션을 표시할 수 있습니다.
+
+image::{images}/dashboard-http.png[Wavefront HTTP section]
+. 선택적으로 `http://localhost:8080/does-not-exist` 에 액세스하여 클라이언트 측 404 오류를 발생시킬 수 있습니다.
+
+
+== Summary
+Tanzu Observability by Wavefront로 메트릭을 전송하는 웹 응용 프로그램을 개발했습니다.
+
+
+== See Also
+
+다음은 유용할 수 있는 정보:
+
+* Wavefront for Spring Boot 3 https://github.com/wavefrontHQ/wavefront-spring-boot/blob/springboot3/README.md[README] (분산 추적 활성화 지침 포함)
+* https://docs.wavefront.com/wavefront_springboot.html[Tanzu Observability by Wavefront for Spring Boot 문서]
