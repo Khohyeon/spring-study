@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/cassandra" />
     <file type="web" url="file://$PROJECT_DIR$/graphql/cassandra" />
+    <file type="web" url="file://$PROJECT_DIR$/observability" />
     <file type="web" url="file://$PROJECT_DIR$/restservice" />
     <file type="web" url="file://$PROJECT_DIR$/schedulingtasks" />
   </component>
