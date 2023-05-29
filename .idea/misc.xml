@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/graphql/hello" />
     <file type="web" url="file://$PROJECT_DIR$/hello" />
     <file type="web" url="file://$PROJECT_DIR$/relationaldataaccess" />
+    <file type="web" url="file://$PROJECT_DIR$/uploadingfiles" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
