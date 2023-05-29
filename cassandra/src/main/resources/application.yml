@@ -1,0 +1,21 @@
+spring:
+  cassandra:
+    schema-action: CREATE_IF_NOT_EXISTS
+    request:
+      timeout: 10s
+    connection:
+      connect-timeout: 10s
+      init-query-timeout: 10s
+    contact-points: 127.0.0.1:9042
+    keyspace-name: cassandra_keyspaces
+    local-datacenter: datacenter1
+    username: sa
+    password:
+
+#astra:
+#  client-id: SZgtMafILUKWtCfIwSFajGaD
+#  client-secret: ${cassandra_secret}
+#  application-token: AstraCS:SZgtMafILUKWtCfIwSFajGaD:8f62b5f103f162ea5ff3686d059a16391f9cf2e3471bc23281060d51e510bc81
+#  cloud-region: us-east1
+#  database-id: spring_cassandra
+#  keyspace: cassandra_keyspaces
