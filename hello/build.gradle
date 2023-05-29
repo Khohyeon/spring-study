@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    archiveBaseName = 'gs-gradle'
+    archiveVersion =  '0.1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation "joda-time:joda-time:2.2"
+    implementation 'com.h2database:h2:2.1.214'
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
