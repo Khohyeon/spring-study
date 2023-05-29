@@ -3,6 +3,8 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/cassandra" />
+    <file type="web" url="file://$PROJECT_DIR$/circuit-breaker-book" />
+    <file type="web" url="file://$PROJECT_DIR$/cloud-circuit-breaker" />
     <file type="web" url="file://$PROJECT_DIR$/graphql/cassandra" />
     <file type="web" url="file://$PROJECT_DIR$/observability" />
     <file type="web" url="file://$PROJECT_DIR$/restservice" />

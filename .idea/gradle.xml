@@ -12,6 +12,22 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/circuit-breaker-book" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/circuit-breaker-book" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/cloud-circuit-breaker" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/cloud-circuit-breaker" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/observability" />
         <option name="modules">
           <set>
