@@ -1,5 +1,5 @@
-import { noChange } from 'lit';
-import { directive, Directive, PartType } from 'lit/directive.js';
+import {noChange} from 'lit';
+import {directive, Directive, PartType} from 'lit/directive.js';
 
 class FlowComponentDirective extends Directive {
   constructor(partInfo) {

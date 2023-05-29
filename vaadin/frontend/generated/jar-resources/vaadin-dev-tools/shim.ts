@@ -1,5 +1,5 @@
-import { css, html, LitElement } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import {css, html, LitElement} from 'lit';
+import {customElement} from 'lit/decorators.js';
 
 /**
  * Blocks interaction with all elements on the page. Forwards mouse and key events as custom shim-* events.
