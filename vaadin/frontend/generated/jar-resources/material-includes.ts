@@ -1,5 +1,4 @@
-import { colorLight } from '@vaadin/vaadin-material-styles';
-import { typography } from '@vaadin/vaadin-material-styles';
+import {colorLight, typography} from '@vaadin/vaadin-material-styles';
 
 const tpl = document.createElement('template');
 tpl.innerHTML = `<style>

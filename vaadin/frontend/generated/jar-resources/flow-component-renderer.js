@@ -1,9 +1,9 @@
 import '@polymer/polymer/lib/elements/dom-if.js';
-import { html } from '@polymer/polymer/lib/utils/html-tag.js';
-import { Debouncer } from '@polymer/polymer/lib/utils/debounce.js';
-import { idlePeriod } from '@polymer/polymer/lib/utils/async.js';
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
-import { flowComponentDirective } from './flow-component-directive.js';
+import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+import {Debouncer} from '@polymer/polymer/lib/utils/debounce.js';
+import {idlePeriod} from '@polymer/polymer/lib/utils/async.js';
+import {PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {flowComponentDirective} from './flow-component-directive.js';
 
 /**
  * Returns the requested node from the Flow client.

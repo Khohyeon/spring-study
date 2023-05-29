@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-params */
-import { html, render } from 'lit';
+import {html, render} from 'lit';
 
 type RenderRoot = HTMLElement & { __litRenderer?: Renderer; _$litPart$?: any };
 

@@ -1,9 +1,9 @@
-import { css, html, LitElement, PropertyValues } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
-import { ComponentReference, getComponents } from './component-util.js';
+import {css, html, LitElement, PropertyValues} from 'lit';
+import {customElement, property, query, state} from 'lit/decorators.js';
+import {ComponentReference, getComponents} from './component-util.js';
 import './shim.js';
-import { Shim } from './shim.js';
-import { popupStyles } from './vaadin-dev-tools.js';
+import {Shim} from './shim.js';
+import {popupStyles} from './vaadin-dev-tools.js';
 
 /**
  * When active, shows a component picker that allows the user to select an element with a server side counterpart.
