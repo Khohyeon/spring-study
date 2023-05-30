@@ -3,6 +3,8 @@ package com.example.uploadingfiles;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+import com.example.uploadingfiles.storage.StorageFileNotFoundException;
+import com.example.uploadingfiles.storage.StorageService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 

@@ -14,7 +14,14 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// tag::security[]
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.ldap:spring-ldap-core")
+	implementation("org.springframework.security:spring-security-ldap")
+	implementation("com.unboundid:unboundid-ldapsdk")
+	// end::security[]
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation("org.springframework.security:spring-security-test")
 }
 
 tasks.named('test') {

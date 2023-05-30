@@ -9,11 +9,9 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-
 @SpringBootApplication
 public class ConsumingRestApplication {
 
-	// 출력을 로그로 보내는 로거를 생성
 	private static final Logger log = LoggerFactory.getLogger(ConsumingRestApplication.class);
 
 	public static void main(String[] args) {
