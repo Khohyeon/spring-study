@@ -252,3 +252,54 @@ build
     └── jar
         └── MANIFEST.MF
 ```
+
+### Test Code
+
+HelloWorld 클래스에 대한 테스트를 작성하겠습니다. src/test/java/com/example/hello/HelloWorldTests.java파일을 만들고 다음 코드를 추가합니다.
+```java
+package com.example.hello;
+
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertThat;
+
+public class HelloWorldTests {
+
+    private ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    private PrintStream ps = new PrintStream(baos);
+
+    @Before
+    public void setup() {
+        System.setOut(ps);
+    }
+
+    @Test
+    public void shouldPrintTimeToConsole() {
+        HelloWorld.main(new String[] { });
+
+        assertThat(output(), containsString("The current local time is"));
+    }
+
+    @Test
+    public void shouldPrintHelloWorldToConsole() {
+        HelloWorld.main(new String[] { });
+
+        assertThat(output(), containsString("Hello world!"));
+    }
+
+    private String output() {
+        return new String(baos.toByteArray(), StandardCharsets.UTF_8);
+    }
+}
+```
+- @Before 메서드는 테스트가 실행되기 전에 실행됩니다. 이 경우 System.out을 ByteArrayOutputStream으로 재지정합니다. 이렇게 하면 테스트가 실행되는 동안 표준 출력이 캡처됩니다.
+- @Test 메서드는 테스트를 정의합니다. 이 경우 HelloWorld.main을 호출하고 출력을 확인합니다.
+- output 메서드는 표준 출력을 문자열로 변환합니다.
+- assertThat 메서드는 Hamcrest 라이브러리의 일부입니다. 이 메서드는 첫 번째 인수가 두 번째 인수를 포함하는지 확인합니다. 이 경우 출력이 특정 문자열을 포함하는지 확인합니다.

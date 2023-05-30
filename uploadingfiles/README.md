@@ -339,3 +339,115 @@ public class FileUploadTests {
 이러한 테스트에서 다양한 모의를 사용하여 컨트롤러 및 를 StorageService사용하여 Servlet 컨테이너 자체와의 상호 작용을 설정합니다 MockMultipartFile.
 
 통합 테스트의 예는 클래스 FileUploadIntegrationTests( 에 있음 src/test/java/com/example/uploadingfiles)를 참조하십시오.
+
+### 추가 정보
+StorageService가 인터페이스로 구성이 되어 있기에 FileSystemStorageService 로 구현체를 만들어서 사용하고 있습니다.
+```java
+package com.example.uploadingfiles.storage;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.stereotype.Service;
+import org.springframework.util.FileSystemUtils;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
+
+@Service
+public class FileSystemStorageService implements StorageService {
+
+	private final Path rootLocation;
+
+	@Autowired
+	public FileSystemStorageService(StorageProperties properties) {
+		this.rootLocation = Paths.get(properties.getLocation());
+	}
+
+	@Override
+	public void store(MultipartFile file) {
+		try {
+			if (file.isEmpty()) {
+				throw new StorageException("Failed to store empty file " + file.getOriginalFilename());
+			}
+			Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
+		} catch (IOException e) {
+			throw new StorageException("Failed to store file " + file.getOriginalFilename(), e);
+		}
+	}
+
+	@Override
+	public Stream<Path> loadAll() {
+		try {
+			return Files.walk(this.rootLocation, 1)
+					.filter(path -> !path.equals(this.rootLocation))
+					.map(path -> this.rootLocation.relativize(path));
+		} catch (IOException e) {
+			throw new StorageException("Failed to read stored files", e);
+		}
+
+	}
+
+	@Override
+	public Path load(String filename) {
+		return rootLocation.resolve(filename);
+	}
+
+	@Override
+	public Resource loadAsResource(String filename) {
+		try {
+			Path file = load(filename);
+			Resource resource = new UrlResource(file.toUri());
+			if(resource.exists() || resource.isReadable()) {
+				return resource;
+			}
+			else {
+				throw new StorageFileNotFoundException("Could not read file: " + filename);
+
+			}
+		} catch (MalformedURLException e) {
+			throw new StorageFileNotFoundException("Could not read file: " + filename, e);
+		}
+	}
+
+	@Override
+	public void deleteAll() {
+		FileSystemUtils.deleteRecursively(rootLocation.toFile());
+	}
+
+	@Override
+	public void init() {
+		try {
+			Files.createDirectory(rootLocation);
+		} catch (IOException e) {
+			throw new StorageException("Could not initialize storage", e);
+		}
+	}
+}
+
+```
+
+#### StorageFileNotFoundException 구성
+file이 없을 경우의 예외처리를 위해 StorageFileNotFoundException 클래스를 구성합니다.
+
+```java
+package com.example.uploadingfiles.storage;
+
+public class StorageFileNotFoundException extends StorageException {
+
+	public StorageFileNotFoundException(String message) {
+		super(message);
+	}
+
+	public StorageFileNotFoundException(String message, Throwable cause) {
+		super(message, cause);
+	}
+}
+
+```
+
