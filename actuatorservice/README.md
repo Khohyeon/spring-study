@@ -187,7 +187,7 @@ Spring Boot는 클래스 경로에서 spring-webmvc 를 감지하면 이 주석�
 #### Gradle을 사용하는 경우 다음 명령을 실행하여 애플리케이션을 실행합니다.
 ./gradlew bootRun ./gradlew build 또는 다음을 사용하여 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다 .
 ```
-java -jar 빌드/libs/gs-actuator-service-0.1.0.jar
+java -jar 빌드/libs/actuatorservice-0.1.0.jar
 ```
 
 서비스가 실행되면( spring-boot:run터미널에서 실행했기 때문에) 별도의 터미널에서 다음 명령을 실행하여 테스트할 수 있습니다.

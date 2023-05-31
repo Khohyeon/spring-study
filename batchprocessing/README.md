@@ -278,7 +278,7 @@ public class BatchProcessingApplication {
 #### Gradle을 사용하는 경우 다음 명령을 실행하여 애플리케이션을 실행합니다.
 ./gradlew bootRun ./gradlew build 또는 다음을 사용하여 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다 .
 ```
-java -jar build/libs/gs-batch-processing-0.1.0.jar
+java -jar build/libs/batchprocessing-0.1.0.jar
 ```
 
 작업은 변형되는 각 사람에 대해 한 줄을 인쇄합니다. 작업이 실행된 후 데이터베이스 쿼리의 출력도 볼 수 있습니다. 다음 출력과 유사해야 합니다.

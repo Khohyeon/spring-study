@@ -140,7 +140,7 @@ public class SchedulingtasksApplication {
 
 Gradle을 사용하는 경우 ./gradlew bootRun. ./gradlew build또는 다음을 사용하여 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다 .
 ```java
-java -jar build/libs/gs-scheduling-tasks-0.1.0.jar
+java -jar build/libs/schedulingtasks-0.1.0.jar
 ```
 
 로깅 출력이 표시되고 로그에서 백그라운드 스레드에 있음을 확인할 수 있습니다. 예약된 작업이 5초마다 실행되는 것을 볼 수 있습니다. 다음 목록은 일반적인 출력을 보여줍니다.

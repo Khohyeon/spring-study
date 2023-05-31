@@ -120,7 +120,7 @@ public class RelationalDataAccessApplication implements CommandLineRunner {
 Gradle 또는 Maven을 사용하여 명령줄에서 애플리케이션을 실행할 수 있습니다. 필요한 모든 종속성, 클래스 및 리소스를 포함하는 단일 실행 가능 JAR 파일을 빌드하고 실행할 수도 있습니다. 실행 가능한 jar을 빌드하면 개발 수명 주기 전체, 다양한 환경 등에 서비스를 애플리케이션으로 쉽게 제공, 버전 지정 및 배포할 수 있습니다.
 
 ```agsl
-java -jar 빌드/libs/gs-relational-data-access-0.1.0.jar
+java -jar 빌드/libs/relationaldataaccess-0.1.0.jar
 ```
 
 Gradle을 사용하는 경우 ./gradlew bootRun. ./gradlew build또는 다음을 사용하여 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다 .

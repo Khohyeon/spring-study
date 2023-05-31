@@ -132,7 +132,7 @@ public class GreetingController {
 #### Gradle을 사용하는 경우
 ./gradlew bootRun. ./gradlew build또는 다음을 사용하여 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다 .
 ```gradle
-java -jar build/libs/gs-rest-service-0.1.0.jar
+java -jar build/libs/restservice-0.1.0.jar
 ```
 
 ### 서비스 테스트

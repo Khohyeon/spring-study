@@ -283,7 +283,7 @@ public class AccessingDataNeo4jApplication {
 #### Gardle을 사용하는 경우
 
 ```
-java -jar 빌드/libs/gs-accessing-data-neo4j-0.1.0.jar
+java -jar 빌드/libs/accessingdataneo4j-0.1.0.jar
 ```
 
 

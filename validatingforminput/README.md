@@ -206,7 +206,7 @@ public class ValidatingFormInputApplication {
 #### Gradle을 사용하는 경우
 
 ```
-java -jar 빌드/libs/gs-validating-form-input-0.1.0.jar
+java -jar 빌드/libs/validatingforminput-0.1.0.jar
 ```
 
 응용 프로그램이 몇 초 내에 시작되어 실행되어야 합니다.

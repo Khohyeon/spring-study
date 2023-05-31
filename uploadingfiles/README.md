@@ -258,7 +258,7 @@ Gradle 또는 Maven을 사용하여 명령줄에서 애플리케이션을 실행
 
 Gradle을 사용하는 경우 ./gradlew bootRun. ./gradlew build또는 다음을 사용하여 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다 .
 ``` 
-java -jar builld/libs/gs-uploading-files-0.1.0.jar
+java -jar builld/libs/uploadingfiles-0.1.0.jar
 ```
 
 ### 애플리케이션 테스트

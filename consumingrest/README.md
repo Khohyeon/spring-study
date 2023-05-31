@@ -156,5 +156,5 @@ ConsumingRestApplication이제 RESTful 소스의 인용문을 표시하도록 �
 ./gradlew bootRun. ./gradlew build또는 다음을 사용하여 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다 .
 
 ```java
-java -jar build/libs/consuming-rest-0.0.1-SNAPSHOT.jar
+java -jar build/libs/consumingrest-0.0.1-SNAPSHOT.jar
 ```

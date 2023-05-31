@@ -205,7 +205,7 @@ public class MessagingRedisApplication {
 ### Gradle을 사용하는 경우 
 ./gradlew bootRun ./gradlew build또는 다음을 사용하여 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다 .
 ```gradle
-java -jar build/libs/messaging-redis-0.0.1-SNAPSHOT.jar
+java -jar build/libs/messagingredis-0.0.1-SNAPSHOT.jar
 ```
 
 다음과 유사한 출력이 표시되어야 합니다.
