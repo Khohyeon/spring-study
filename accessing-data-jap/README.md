@@ -196,7 +196,7 @@ Customer[id=4, firstName='David', lastName='Palmer']
 Customer[id=5, firstName='Michelle', lastName='Dessler']
 ```
 
-#### findById(1L)
+#### findById()
 ```
 Customer found with findById(1L):
 --------------------------------
