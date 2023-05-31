@@ -1,10 +1,10 @@
-package com.example.accessingdatagemfire;
+package com.example.managingtransaction;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AccessingDataGemfireApplicationTests {
+class ManagingTransactionApplicationTests {
 
 	@Test
 	void contextLoads() {
