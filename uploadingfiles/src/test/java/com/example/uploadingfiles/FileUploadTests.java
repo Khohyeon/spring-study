@@ -3,6 +3,8 @@ package com.example.uploadingfiles;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+import com.example.uploadingfiles.storage.StorageFileNotFoundException;
+import com.example.uploadingfiles.storage.StorageService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
@@ -20,9 +22,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import com.example.uploadingfiles.storage.StorageFileNotFoundException;
-import com.example.uploadingfiles.storage.StorageService;
 
 @AutoConfigureMockMvc
 @SpringBootTest

@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER="ho"
+      - RABBITMQ_DEFAULT_PASS="1234"

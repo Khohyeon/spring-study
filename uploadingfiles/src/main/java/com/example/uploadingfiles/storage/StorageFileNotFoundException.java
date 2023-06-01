@@ -1,15 +1,12 @@
 package com.example.uploadingfiles.storage;
 
-import org.springframework.http.HttpStatus;
+public class StorageFileNotFoundException extends StorageException {
 
+	public StorageFileNotFoundException(String message) {
+		super(message);
+	}
 
-public class StorageFileNotFoundException  extends RuntimeException{
-
-    public StorageFileNotFoundException(String message){
-        super(message);
-    }
-
-    public HttpStatus status(){
-        return HttpStatus.BAD_REQUEST;
-    }
+	public StorageFileNotFoundException(String message, Throwable cause) {
+		super(message, cause);
+	}
 }
