@@ -34,11 +34,11 @@
 
 17. [Hateoas](rest-hateoas/README.md)<br>
 
-18. [Gemfile](accessing-data-gemfile/README.md)<br>
+18. [Gemfire](accessing-data-gemfire/README.md)<br>
 
 19. [Integration](integration/README.md)<br>
 
-20.
+20. [Caching GemFire](caching-gemfire/README.md)<br>
 
 21. [Transaction](managing-transaction/README.md)<br>
 
