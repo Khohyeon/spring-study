@@ -425,3 +425,49 @@ implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 
 새로운 RESTful 엔드포인트 세트가 애플리케이션에 추가되었음을 확인할 수 있습니다. Spring Boot에서 제공하는 관리 서비스입니다. 다음 목록은 일반적인 출력을 보여줍니다.
+
+```
+management.endpoint.health-org.springframework.boot.actuate.autoconfigure.health.HealthEndpointProperties
+management.endpoints.web-org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties
+management.endpoints.web.cors-org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties
+management.health.diskspace-org.springframework.boot.actuate.autoconfigure.system.DiskSpaceHealthIndicatorProperties
+management.info-org.springframework.boot.actuate.autoconfigure.info.InfoContributorProperties
+management.metrics-org.springframework.boot.actuate.autoconfigure.metrics.MetricsProperties
+management.observations-org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties
+management.server-org.springframework.boot.actuate.autoconfigure.web.server.ManagementServerProperties
+management.simple.metrics.export-org.springframework.boot.actuate.autoconfigure.metrics.export.simple.SimpleProperties
+managementServletContext
+
+```
+
+```
+/actuator/shutdown 엔드포인트도 있지만 기본적으로 JMX를 통해서만 볼 수 있습니다. 이를 HTTP 끝점으로 활성화하려면 application.properties 파일에 management.endpoint.shutdown.enabled=true를 추가하고 management.endpoints.web.exposure.include=health,info,shutdown으로 노출합니다. 그러나 공개적으로 사용 가능한 애플리케이션에 대해 종료 엔드포인트를 활성화해서는 안 됩니다.
+```
+
+properties 파일에 다음을 추가합니다.
+```properties
+management.endpoint.shutdown.enabled=true
+application.propertiesmanagement.endpoints.web.exposure.include=health,info,shutdown
+```
+
+다음 명령을 실행하여 애플리케이션의 상태를 확인할 수 있습니다.
+```
+입력 : $ curl localhost:8080/actuator/health
+출력 : {"status":"UP"}
+```
+curl을 통해 종료를 호출하여 application.properties에 필요한 줄(이전 참고에 표시됨)을 추가하지 않은 경우 어떤 일이 발생하는지 확인할 수 있습니다.
+
+```
+입력 : $ curl -X POST localhost:8080/actuator/shutdown
+출력 : {"timestamp":1401820343710,"error":"Not Found","status":404,"1message":"","path":"/actuator/shutdown"}
+```
+활성화하지 않았기 때문에 요청된 엔드포인트를 사용할 수 없습니다. <br> 
+-> 엔드포인트가 존재하지 않기 때문
+
+### Spring Boot의 스타터 보기
+Spring Boot의 "스타터" 중 일부를 보았습니다. 여기 소스 코드에서 모두 볼 수 있습니다.
+
+### JAR 지원 및 Groovy 지원
+마지막 예제는 Spring Boot가 필요한지 모를 수도 있는 빈을 연결하는 방법을 보여주었습니다. 편리한 관리 서비스를 켜는 방법도 보여줬다.
+
+
