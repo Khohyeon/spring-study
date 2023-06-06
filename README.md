@@ -64,11 +64,11 @@
 
 32. [Jquery]
 
-33. [Cross Origin]
+33. [Cross Origin](rest-service-cors/README.md) <br>
 
-34. [SOAP]
+34. [SOAP] (도대체 왜 안되는 걸까)
 
-35.
+35. [JPA Rest]
 
 36.
 
@@ -125,9 +125,6 @@
 62.
 
 63.
-
-27. [Handling Submit](handling-form-submission/README.md)<br>
-
 
 
 
