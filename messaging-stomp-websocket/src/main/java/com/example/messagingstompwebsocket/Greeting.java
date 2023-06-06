@@ -2,20 +2,17 @@ package com.example.messagingstompwebsocket;
 
 public class Greeting {
 
-    private String Content;
+    private String content;
 
     public Greeting() {
     }
 
-    public Greeting(String Content) {
-        this.Content = Content;
+    public Greeting(String content) {
+        this.content = content;
     }
 
-    public void setContent(String Content) {
-        this.Content = Content;
+    public String getContent() {
+        return content;
     }
-
-
 
 }
-

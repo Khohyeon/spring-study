@@ -68,7 +68,7 @@
 
 34. [SOAP] (도대체 왜 안되는 걸까)
 
-35. [JPA Rest]
+35. [JPA Rest](accessing-data-jpa/README.md) <br>
 
 36.
 
