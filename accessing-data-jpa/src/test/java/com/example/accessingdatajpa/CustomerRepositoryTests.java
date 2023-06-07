@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.accessingdatajap;
+package com.example.accessingdatajpa;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

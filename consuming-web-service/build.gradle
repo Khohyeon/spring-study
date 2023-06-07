@@ -19,42 +19,42 @@ repositories {
 }
 
 // tag::wsdl[]
-task genJaxb {
-    ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
-    ext.classesDir = "${buildDir}/classes/jaxb"
-    ext.schema = "http://localhost:8080/ws/countries.wsdl"
-
-    outputs.dir classesDir
-
-    doLast() {
-        project.ant {
-            taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask",
-                    classpath: configurations.jaxb.asPath
-            mkdir(dir: sourcesDir)
-            mkdir(dir: classesDir)
-
-            xjc(destdir: sourcesDir, schema: schema,
-                    package: "com.example.consumingwebservice.wsdl") {
-                arg(value: "-wsdl")
-                produces(dir: sourcesDir, includes: "**/*.java")
-            }
-
-            javac(destdir: classesDir, source: 1.8, target: 1.8, debug: true,
-                    debugLevel: "lines,vars,source",
-                    classpath: configurations.jaxb.asPath) {
-                src(path: sourcesDir)
-                include(name: "**/*.java")
-                include(name: "*.java")
-            }
-
-            copy(todir: classesDir) {
-                fileset(dir: sourcesDir, erroronmissingdir: false) {
-                    exclude(name: "**/*.java")
-                }
-            }
-        }
-    }
-}
+//task genJaxb {
+//    ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
+//    ext.classesDir = "${buildDir}/classes/jaxb"
+//    ext.schema = "http://localhost:8080/ws/countries.wsdl"
+//
+//    outputs.dir classesDir
+//
+//    doLast() {
+//        project.ant {
+//            taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask",
+//                    classpath: configurations.jaxb.asPath
+//            mkdir(dir: sourcesDir)
+//            mkdir(dir: classesDir)
+//
+//            xjc(destdir: sourcesDir, schema: schema,
+//                    package: "com.example.consumingwebservice.wsdl") {
+//                arg(value: "-wsdl")
+//                produces(dir: sourcesDir, includes: "**/*.java")
+//            }
+//
+//            javac(destdir: classesDir, source: 1.8, target: 1.8, debug: true,
+//                    debugLevel: "lines,vars,source",
+//                    classpath: configurations.jaxb.asPath) {
+//                src(path: sourcesDir)
+//                include(name: "**/*.java")
+//                include(name: "*.java")
+//            }
+//
+//            copy(todir: classesDir) {
+//                fileset(dir: sourcesDir, erroronmissingdir: false) {
+//                    exclude(name: "**/*.java")
+//                }
+//            }
+//        }
+//    }
+//}
 // end::wsdl[]
 
 dependencies {
@@ -62,10 +62,13 @@ dependencies {
     implementation ('org.springframework.boot:spring-boot-starter-web-services') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
-    implementation 'org.springframework.ws:spring-ws-core'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2' // JDK 11 호환 문제때문에 의존성 추가
+    implementation 'wsdl4j:wsdl4j'
+    jaxb("org.glassfish.jaxb:jaxb-xjc")
+//    implementation 'org.springframework.ws:spring-ws-core'
     // For Java 11:
     implementation 'org.glassfish.jaxb:jaxb-runtime'
-    implementation(files(genJaxb.classesDir).builtBy(genJaxb))
+//    implementation(files(genJaxb.classesDir).builtBy(genJaxb))
 
     jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
 // end::dependency[]

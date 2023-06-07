@@ -1,4 +1,4 @@
-package com.example.accessingdatajap;
+package com.example.accessingdatajpa;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
