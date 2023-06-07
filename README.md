@@ -42,13 +42,13 @@
 
 21. [Transaction](managing-transaction/README.md)<br>
 
-22. [JPA](accessing-data-jap/README.md)<br>
+22. [JPA](accessing-data-jpa/README.md)<br>
 
 23. [Mongodb](accessing-data-mongodb/README.md)<br>
 
 24. [Spring MVC](serving-web-content/README.md)<br>
 
-25. ??????????????????
+25. [Jar-to-War](convert-jar-to-war/README.md)<br>
 
 26. [Async Method](async-method/READMD.md)<br>
 
