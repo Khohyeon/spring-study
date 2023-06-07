@@ -2,11 +2,11 @@
 이 가이드는 Spring으로 "Hello, World" 웹 사이트를 만드는 과정을 안내합니다.
 
 ### 무엇을 만들 것인가
-정적 홈 페이지가 있고 http://localhost:8080/greeting에서 HTTP GET 요청도 수락하는 애플리케이션을 빌드합니다.
+정적 홈 페이지가 있고 http://localhost:8080/greeting 에서 HTTP GET 요청도 수락하는 애플리케이션을 빌드합니다.
 
 HTML을 표시하는 웹 페이지로 응답합니다. HTML 본문에는 "Hello, World!"라는 인사말이 포함됩니다.
 
-쿼리 문자열에서 선택적 이름 매개 변수를 사용하여 인사말을 사용자 지정할 수 있습니다. URL은 http://localhost:8080/greeting?name=User일 수 있습니다.
+쿼리 문자열에서 선택적 이름 매개 변수를 사용하여 인사말을 사용자 지정할 수 있습니다. URL은 http://localhost:8080/greeting?name=User 일 수 있습니다.
 
 name 매개 변수 값은 World의 기본값을 재정의하고 "Hello, User!"로 변경되는 콘텐츠에 의해 응답에 반영됩니다.
 

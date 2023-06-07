@@ -2,7 +2,7 @@
 이 가이드는 문서 기반 데이터베이스인 MongoDB 에서 데이터를 저장하고 검색하는 애플리케이션을 빌드하기 위해 Spring Data MongoDB를 사용하는 프로세스를 안내합니다 .
 
 ### 무엇을 만들 것인가
-CustomerSpring Data MongoDB를 사용하여 MongoDB 데이터베이스에 POJO(Plain Old Java Objects)를 저장합니다 .
+Spring Data MongoDB를 사용하여 MongoDB 데이터베이스에 Customer POJO(Plain Old Java Objects)를 저장합니다.
 
 ### 필요한 것
 * 약 15분

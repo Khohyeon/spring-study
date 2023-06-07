@@ -2,7 +2,7 @@
 이 가이드는 메시지를 게시하고 구독하는 RabbitMQ AMQP 서버를 설정하고 해당 RabbitMQ 서버와 상호 작용할 Spring Boot 애플리케이션을 만드는 과정을 안내합니다.
 
 ### 무엇을 만들 것인가
-RabbitTemplateSpring AMQP를 사용하여 메시지를 게시 하고 POJO에서 메시지를 구독하는 애플리케이션을 빌드합니다 MessageListenerAdapter.
+Spring AMQP의 RabbitTemplate을 사용하여 메시지를 게시하고 MessageListenerAdapter를 사용하여 POJO에서 메시지를 구독하는 애플리케이션을 빌드합니다.
 
 ### 필요한 것
 * 약 15분
