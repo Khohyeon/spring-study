@@ -58,7 +58,7 @@
 
 29. [WebSocket](messaging-stomp-websocket/README.md)<br>
 
-30. [STS] (잠시 보류중 입니다.) <br>
+30. [STS](sts/README.md) <br>
 
 31. [AngularJS]
 
