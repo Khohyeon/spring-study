@@ -176,7 +176,7 @@
 - CORS란? <br>
 -> CORS는 웹 애플리케이션이 다른 도메인에서 리소스를 요청할 수 있도록 허용하는 메커니즘입니다.
 
-34. [SOAP](consuming-web-service/README.md) <br>
+34. [Consuming SOAP](consuming-web-service-maven/README.md) <br>
 - 이 가이드는 Spring에서 SOAP 기반 웹 서비스를 사용하는 과정을 안내합니다.
 - Spring에서 SOAP 기반 웹 서비스를 호출하는 예제를 만드는 가이드 입니다.
 - SOAP란? <br>
@@ -203,7 +203,9 @@
 
 38.
 
-39.
+39. [Producing SOAP](producing-web-service-maven/README.md) <br>
+- 이 가이드는 Spring을 사용하여 SOAP 기반 웹 서비스 서버를 만드는 과정을 안내합니다.
+- Spring을 사용하여 SOAP 기반 웹 서비스 서버를 만드는 예제를 만드는 가이드 입니다.
 
 40.
 
