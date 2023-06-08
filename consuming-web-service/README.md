@@ -33,7 +33,7 @@ SOAP를 사용하여 원격 WSDL 기반 웹 서비스에서 국가 데이터를 
 
 * cd를 gs-소비 웹 서비스/이니셜로 이동
 
-* WSDL 기반 도메인 개체 생성으로 이동합니다.
+* <a href="#initial" name="&amp;lpos=apps_scodevmw : 49" onclick="s_objectID='apps_scodevmw : Generate Domain Objects Based on a WSDL : 49'">WSDL 기반 도메인 개체 생성</a>으로 이동합니다.
 
 완료하면 gs-fused-web-service/complete의 코드와 비교하여 결과를 확인할 수 있습니다.
 
