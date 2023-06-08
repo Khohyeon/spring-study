@@ -188,9 +188,10 @@
 - JPA란? <br>
 -> JPA는 Java Persistence API의 약자로, 자바 ORM 기술에 대한 API 표준 명세입니다. 
 
-36. [Jquery](consuming-rest-jquery/README.md) <br>
-- 이 가이드는 Spring MVC 기반 RESTful 웹 서비스를 사용하는 간단한 jQuery 클라이언트를 작성하는 과정을 안내합니다.
-- jQuery를 사용하여 RESTful 웹 서비스를 호출하는 예제를 만드는 가이드 입니다.
+36. [Neo4j Rest](accessing-neo4j-data-rest/README.md) <br>
+- 이 가이드는 하이퍼미디어 기반 RESTful 프런트 엔드를 통해 그래프 기반 데이터(Neo4j)에 액세스하는 애플리케이션을 만드는 과정을 안내합니다 .
+- 하이퍼미디어 기반 RESTful 프런트 엔드를 통해 그래프 기반 데이터(Neo4j)에 액세스하는 예제를 만드는 가이드 입니다.
+- Neo4j를 설치하여 서버의 properties 와 연결을 시킨 후 curl 명령어를 이용하여 응답을 받아봤습니다.
 
 37.
 

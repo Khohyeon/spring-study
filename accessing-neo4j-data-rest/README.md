@@ -168,8 +168,279 @@ java -jar build/libs/accessing-neo4j-data-rest-0.0.1-SNAPSHOT.jar
 }
 ```
 
-여기에서 이 서버가 제공하는 기능을 처음으로 엿볼 수 있습니다. http://localhost:8080/people에 사람 링크가 있습니다. ?page, ?size 및 ?sort와 같은 몇 가지 옵션이 있습니다.
+여기에서 이 서버가 제공하는 기능을 처음으로 엿볼 수 있습니다. http://localhost:8080/people 에 사람 링크가 있습니다. ?page, ?size 및 ?sort와 같은 몇 가지 옵션이 있습니다.
 
 ```
 Spring Data REST는 JSON 출력에 HAL 형식을 사용합니다. 이는 유연하며 제공되는 데이터에 인접한 링크를 제공하는 편리한 방법을 제공합니다.
 ```
+요청 : curl http://localhost:8080/people 을 했을 때 현재 데이터베이스에 담겨져 있는 데이터가 없어서 
+```
+{
+  "_embedded" : {
+    "people" : [ ]
+  },
+    "totalElements" : 0,
+    "totalPages" : 0,
+    "number" : 0
+  }
+}
+```
+
+이렇게 응답이 나왔습니다. 
+
+```
+요청 : 
+$ curl -i -X POST -H "Content-Type:application/json" -d '{  "firstName" : "Frodo",  "lastName" : "Baggins" }' http://localhost:8080/people
+```
+POST 할 때 명령어 기능
+* -i : 헤더를 포함한 응답 메시지를 볼 수 있도록 합니다. 새로 생성된 Person의 URI가 표시됩니다.
+* -X : POST는 새 항목을 만드는 데 사용되는 POST 신호를 보냅니다.
+* -H : "Content-Type:application/json"은 애플리케이션이 페이로드에 JSON 개체가 포함되어 있음을 알 수 있도록 콘텐츠 유형을 설정합니다.
+* -d : '{ "firstName" : "Frodo", "lastName" : "Baggins" }'는 전송되는 데이터입니다.
+
+```
+응답 : 
+HTTP/1.1 201 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Location: http://localhost:8080/people/0
+Content-Type: application/hal+json
+Transfer-Encoding: chunked
+Date: Thu, 08 Jun 2023 04:44:41 GMT
+
+{
+  "firstName" : "Frodo",
+  "lastName" : "Baggins",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/people/0"
+    },
+    "person" : {
+      "href" : "http://localhost:8080/people/0"
+    }
+  }
+}
+
+```
+
+POST로 데이터를 추가하면 firstName 과 lastName 을 가진 데이터가 하나 생성이 되었다는 것을 알 수 있었고 
+다시 한번 curl http://localhost:8080/people 을 실행 해봤습니다.
+
+```
+요청 : $ curl http://localhost:8080/people
+
+응답 :
+{
+  "_embedded" : {
+    "people" : [ {
+      "firstName" : "Frodo",
+      "lastName" : "Baggins",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/people/0"
+        },
+        "person" : {
+          "href" : "http://localhost:8080/people/0"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/people?page=0&size=20"
+    },
+    "profile" : {
+      "href" : "http://localhost:8080/profile/people"
+    },
+    "search" : {
+      "href" : "http://localhost:8080/people/search"
+    }
+  },
+    "size" : 20,
+    "totalElements" : 1,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
+
+```
+다음과 같이 응답이 되는 부분을 알 수 있었습니다. 
+
+people 개체에는 Frodo가 포함된 목록이 포함되어 있습니다. 자체 링크가 어떻게 포함되어 있는지 확인하십시오. Spring Data REST는 또한 Evo Inflector 라이브러리를 사용하여 그룹화를 위한 엔터티 이름을 복수화합니다.
+```
+요청 : $ curl http://localhost:8080/people/0
+
+응답 :
+{
+  "firstName" : "Frodo",
+  "lastName" : "Baggins",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/people/0"
+    },
+    "person" : {
+      "href" : "http://localhost:8080/people/0"
+    }
+  }
+}
+```
+
+이것은 순전히 웹 기반으로 보일 수 있지만 배후에는 내장된 Neo4j 그래프 데이터베이스가 있습니다. 프로덕션 환경에서는 아마도 독립형 Neo4j 서버에 연결할 것입니다.
+
+
+이 가이드에는 도메인 개체가 하나만 있습니다. 도메인 개체가 서로 관련된 보다 복잡한 시스템에서 Spring Data REST는 연결된 레코드를 탐색하는 데 도움이 되는 추가 링크를 렌더링합니다.
+```
+{
+  "_links" : {
+    "findByLastName" : {
+      "href" : "http://localhost:8080/people/search/findByLastName{?name}",
+      "templated" : true
+    },
+    "self" : {
+      "href" : "http://localhost:8080/people/search"
+    }
+  }
+}
+
+```
+
+HTTP 쿼리 매개변수 이름을 포함하여 쿼리의 URL을 볼 수 있습니다. 이는 인터페이스에 포함된 @Param("name") 주석과 일치합니다.
+
+
+findByLastName 쿼리를 사용하려면 다음 명령을 실행합니다.
+```
+요청 : $ curl http://localhost:8080/people/search/findByLastName?name=Baggins
+
+응답 : 
+{
+  "_embedded" : {
+    "people" : [ {
+      "firstName" : "Frodo",
+      "lastName" : "Baggins",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/people/0"
+        },
+        "person" : {
+          "href" : "http://localhost:8080/people/0"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/people/search/findByLastName?name=Baggins"
+    }
+  }
+}
+
+```
+
+코드에서 List<Person>을 반환하도록 정의했으므로 모든 결과를 반환합니다. Person만 반환하도록 정의한 경우 반환할 Person 개체 중 하나를 선택합니다. 이것은 예측할 수 없기 때문에 여러 항목을 반환할 수 있는 쿼리에 대해서는 그렇게 하고 싶지 않을 것입니다.
+
+PUT, PATCH 및 DELETE REST 호출을 실행하여 기존 레코드를 교체, 업데이트 또는 삭제할 수도 있습니다.
+
+
+#### PUT 요청
+```
+요청 : $ curl -X PUT -H "Content-Type:application/json" -d '{ "firstName": "Bilbo", "lastName": "Baggins" }' http://localhost:8080/people/0
+
+응답 :
+{
+  "firstName" : "Bilbo",
+  "lastName" : "Baggins",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/people/0"
+    },
+    "person" : {
+      "href" : "http://localhost:8080/people/0"
+    }
+  }
+}
+
+```
+
+#### PATCH 요청
+
+```
+요청 : $ curl -X PATCH -H "Content-Type:application/json" -d '{ "firstName": "Bilbo Jr." }' http://localhost:8080/people/0
+
+응답 :
+{
+  "firstName" : "Bilbo Jr.",
+  "lastName" : "Baggins",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/people/0"
+    },
+    "person" : {
+      "href" : "http://localhost:8080/people/0"
+    }
+  }
+}
+
+```
+
+```
+PUT은 전체 레코드를 대체합니다. 제공되지 않은 필드는 null로 대체됩니다. PATCH는 항목의 하위 집합을 업데이트하는 데 사용할 수 있습니다.
+```
+
+
+#### DELETE 요청
+다음 예제(해당 출력과 함께 표시됨)와 같이 레코드를 삭제할 수도 있습니다.
+
+```
+요청 : $ curl -X DELETE http://localhost:8080/people/0
+
+응답 :
+{
+  "firstName" : "Bilbo Jr.",
+  "lastName" : "Baggins",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/people/0"
+    },
+    "person" : {
+      "href" : "http://localhost:8080/people/0"
+    }
+  }
+}
+
+```
+
+삭제 한 뒤 다시 실행
+```
+요청 : $  curl http://localhost:8080/people
+
+응답 :
+{
+  "_embedded" : {
+    "people" : [ ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/people?page=0&size=20"
+    },
+    "profile" : {
+      "href" : "http://localhost:8080/profile/people"
+    },
+    "search" : {
+      "href" : "http://localhost:8080/people/search"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 0,
+    "totalPages" : 0,
+    "number" : 0
+  }
+}
+
+```
+
+잘 삭제가 된 것을 볼 수 있다.
+
+
+이 하이퍼미디어 기반 인터페이스의 편리한 측면은 curl(또는 원하는 REST 클라이언트)을 사용하여 모든 RESTful 끝점을 검색할 수 있는 방법입니다. 고객과 공식적인 계약 또는 인터페이스 문서를 교환할 필요가 없습니다.

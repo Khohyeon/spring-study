@@ -7,7 +7,8 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 @Node
 public class Person {
 
-    @Id @GeneratedValue private Long id;
+    @Id @GeneratedValue
+    private Long id;
 
     private String firstName;
     private String lastName;
