@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'io.freefair.lombok' version '6.3.0'
+	id 'java'
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+group = "org.springframework"
+version = "0.1.0"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	implementation "org.springframework.boot:spring-boot-starter-data-rest"
+	implementation "org.springframework.data:spring-data-geode"
+	implementation "org.projectlombok:lombok"
+
+	runtimeOnly "org.springframework.shell:spring-shell:1.2.0.RELEASE"
+
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+
+}
+
+test {
+	useJUnitPlatform()
+}
+
+bootJar {
+	baseName = 'accessing-gemfire-data-rest'
+	version =  '0.1.0'
+}

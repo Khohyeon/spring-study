@@ -62,8 +62,8 @@ pom.xml
 
 ```xml
 <dependency>
-	<groupId>wsdl4j</groupId>
-	<artifactId>wsdl4j</artifactId>
+    <groupId>wsdl4j</groupId>
+    <artifactId>wsdl4j</artifactId>
 </dependency>
 ```
 ```gradle
@@ -126,22 +126,22 @@ name, population, capital 및 currency 를 반환하는 작업이 포함된 XSD 
 
 ```xml
 <plugin>
-	<groupId>org.codehaus.mojo</groupId>
-	<artifactId>jaxb2-maven-plugin</artifactId>
-	<version>3.1.0</version>
-	<executions>
-		<execution>
-			<id>xjc</id>
-			<goals>
-				<goal>xjc</goal>
-			</goals>
-		</execution>
-	</executions>
-	<configuration>
-		<sources>
-			<source>${project.basedir}/src/main/resources/countries.xsd</source>
-		</sources>
-	</configuration>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>jaxb2-maven-plugin</artifactId>
+    <version>3.1.0</version>
+    <executions>
+        <execution>
+            <id>xjc</id>
+            <goals>
+                <goal>xjc</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <sources>
+            <source>${project.basedir}/src/main/resources/countries.xsd</source>
+        </sources>
+    </configuration>
 </plugin>
 ```
 
@@ -252,23 +252,23 @@ Country Endpoint 만들려면 들어오는 SOAP 요청을 처리하기 위해 �
 ```java
 @Endpoint
 public class CountryEndpoint {
-	private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
+    private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
 
-	private CountryRepository countryRepository;
+    private CountryRepository countryRepository;
 
-	@Autowired
-	public CountryEndpoint(CountryRepository countryRepository) {
-		this.countryRepository = countryRepository;
-	}
+    @Autowired
+    public CountryEndpoint(CountryRepository countryRepository) {
+        this.countryRepository = countryRepository;
+    }
 
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
-	@ResponsePayload
-	public GetCountryResponse getCountry(@RequestPayload GetCountryRequest request) {
-		GetCountryResponse response = new GetCountryResponse();
-		response.setCountry(countryRepository.findCountry(request.getName()));
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
+    @ResponsePayload
+    public GetCountryResponse getCountry(@RequestPayload GetCountryRequest request) {
+        GetCountryResponse response = new GetCountryResponse();
+        response.setCountry(countryRepository.findCountry(request.getName()));
 
-		return response;
-	}
+        return response;
+    }
 }
 ```
 * @Endpoint 주석은 들어오는 SOAP 메시지를 처리하기 위한 잠재적인 후보로 Spring WS에 클래스를 등록합니다.
@@ -290,28 +290,28 @@ io.spring.guides 클래스는 WSDL을 기반으로 도메인 클래스를 생성
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
-	@Bean
-	public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
-		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
-		servlet.setApplicationContext(applicationContext);
-		servlet.setTransformWsdlLocations(true);
-		return new ServletRegistrationBean<>(servlet, "/ws/*");
-	}
+    @Bean
+    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
+        MessageDispatcherServlet servlet = new MessageDispatcherServlet();
+        servlet.setApplicationContext(applicationContext);
+        servlet.setTransformWsdlLocations(true);
+        return new ServletRegistrationBean<>(servlet, "/ws/*");
+    }
 
-	@Bean(name = "countries")
-	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
-		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-		wsdl11Definition.setPortTypeName("CountriesPort");
-		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
-		wsdl11Definition.setSchema(countriesSchema);
-		return wsdl11Definition;
-	}
+    @Bean(name = "countries")
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("CountriesPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
+        wsdl11Definition.setSchema(countriesSchema);
+        return wsdl11Definition;
+    }
 
-	@Bean
-	public XsdSchema countriesSchema() {
-		return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
-	}
+    @Bean
+    public XsdSchema countriesSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
+    }
 }
 ```
 * Spring WS는 SOAP 메시지를 처리하기 위해 다른 서블릿 유형인 MessageDispatcherServlet을 사용합니다. ApplicationContext를 MessageDispatcherServlet에 주입하고 설정하는 것이 중요합니다. 그렇지 않으면 Spring WS가 Spring 빈을 자동으로 감지하지 않습니다.
@@ -343,9 +343,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ProducingWebServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ProducingWebServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ProducingWebServiceApplication.class, args);
+    }
 }
 ```
 @SpringBootApplication은 다음을 모두 추가하는 편리한 주석입니다.
@@ -376,13 +376,13 @@ java -jar target/gs-soap-service-0.1.0.jar
 이제 애플리케이션이 실행 중이므로 테스트할 수 있습니다. 다음 SOAP 요청을 포함하는 request.xml이라는 파일을 만듭니다.
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-				  xmlns:gs="http://spring.io/guides/gs-producing-web-service">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <gs:getCountryRequest>
-         <gs:name>Spain</gs:name>
-      </gs:getCountryRequest>
-   </soapenv:Body>
+                  xmlns:gs="http://spring.io/guides/gs-producing-web-service">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:getCountryRequest>
+            <gs:name>Spain</gs:name>
+        </gs:getCountryRequest>
+    </soapenv:Body>
 </soapenv:Envelope>
 ```
 

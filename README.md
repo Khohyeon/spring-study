@@ -108,7 +108,11 @@
 
 20. [Caching GemFire](caching-gemfire/README.md)<br>
 - 이 가이드는 Apache Geode의 데이터 관리 시스템을 사용하여 애플리케이션 코드의 특정 호출을 캐시하는 과정을 안내합니다.
-- 
+- Spring Boot를 사용하여 Apache Geode의 데이터 관리 시스템을 사용하여 애플리케이션 코드의 특정 호출을 캐시하는 예제를 만드는 가이드 입니다.
+- Apache Geode란? <br>
+- Apache Geode는 대규모 데이터 처리에 특화된 인메모리 데이터 그리드 플랫폼입니다. 데이터를 빠르게 저장하고 처리할 수 있으며, 분산 환경에서 안정성과 확장성을 제공합니다.
+
+
 21. [Transaction](managing-transaction/README.md)<br>
 - 이 가이드는 비간섭 트랜잭션으로 데이터베이스 작업을 래핑하는 프로세스를 안내합니다.
 - 특수 JDBC 코드를 작성할 필요 없이 데이터베이스 작업을 트랜잭션으로 만드는 간단한 JDBC 응용 프로그램을 만드는 가이드 입니다.
@@ -201,7 +205,7 @@
 - MongoDB는 문서 지향적 데이터베이스로, 데이터를 JSON과 같은 동적 스키마 형식으로 저장합니다.
 
 
-38.
+38. [Gemfire Rest](accessing-gemfire-data-rest/README.md) <br>
 
 39. [Producing SOAP](producing-web-service-maven/README.md) <br>
 - 이 가이드는 Spring을 사용하여 SOAP 기반 웹 서비스 서버를 만드는 과정을 안내합니다.
