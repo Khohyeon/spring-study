@@ -224,12 +224,12 @@ Gradle 또는 Maven을 사용하여 명령줄에서 애플리케이션을 실행
 
 Gradle을 사용하는 경우 ./gradlew bootRun을 사용하여 애플리케이션을 실행할 수 있습니다. 또는 다음과 같이 ./gradlew build를 사용하여 JAR 파일을 빌드한 다음 JAR 파일을 실행할 수 있습니다.
 ```
-java -jar build/libs/gs-accessing-gemfire-data-rest-0.1.0.jar
+java -jar build/libs/accessing-gemfire-data-rest-0.1.0.jar
 ```
 
 Maven을 사용하는 경우 ./mvnw spring-boot:run을 사용하여 애플리케이션을 실행할 수 있습니다. 또는 다음과 같이 ./mvnw clean 패키지로 JAR 파일을 빌드한 후 JAR 파일을 실행할 수 있습니다.
 ```
-java -jar target/gs-accessing-gemfire-data-rest-0.1.0.jar
+java -jar target/accessing-gemfire-data-rest-0.1.0.jar
 ```
 
 ### 애플리케이션 테스트

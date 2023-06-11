@@ -19,37 +19,36 @@
 - Spring Initializr를 사용하여 Gradle을 사용하여 Spring Boot 애플리케이션을 빌드하는 예제를 만드는 가이드 입니다.
 
 5. [Maven](hello_maven/README.md)<br>
-* 이 가이드는 Maven을 사용하여 Spring Boot 애플리케이션을 빌드하는 과정을 안내합니다.<br>
-* Spring Initializr를 사용하여 Maven을 사용하여 Spring Boot 애플리케이션을 빌드하는 예제를 만드는 가이드 입니다.
+- 이 가이드는 Maven을 사용하여 Spring Boot 애플리케이션을 빌드하는 과정을 안내합니다.<br>
+- Spring Initializr를 사용하여 Maven을 사용하여 Spring Boot 애플리케이션을 빌드하는 예제를 만드는 가이드 입니다.
 
 6. [JDBC](relationaldataaccess/README.md)<br>
-* 이 가이드는 Spring을 사용하여 관계형 데이터베이스에 액세스하는 과정을 안내합니다.<br>
-* Spring의 JdbcTemplate을 사용하여 데이터베이스에 저장된 고객 데이터를 검색하는 예제를 만드는 가이드 입니다.
+- 이 가이드는 Spring을 사용하여 관계형 데이터베이스에 액세스하는 과정을 안내합니다.<br>
+- Spring의 JdbcTemplate을 사용하여 데이터베이스에 저장된 고객 데이터를 검색하는 예제를 만드는 가이드 입니다.
 
 7. [FileUpload](uploadingfiles/README.md)<br>
-* 이 가이드는 Spring을 사용하여 파일 업로드를 처리하는 과정을 안내합니다.<br>
-* 파일 업로드를 허용하는 Spring Boot 웹 애플리케이션을 생성합니다. 또한 테스트 파일을 업로드하기 위한 간단한 HTML 인터페이스를 구축하는 가이드입니다.
+- 이 가이드는 Spring을 사용하여 파일 업로드를 처리하는 과정을 안내합니다.<br>
+- 파일 업로드를 허용하는 Spring Boot 웹 애플리케이션을 생성합니다. 또한 테스트 파일을 업로드하기 위한 간단한 HTML 인터페이스를 구축하는 가이드입니다.
 
 8. [LDAP](authenticatingldap/README.md)<br>
-- LDAP란? <br>
--> 경량 디렉터리 액세스 프로토콜로 네트워크에서 디렉터리 서비스에 접근하기 위해 사용되는 프로토콜이다.
-  
 - 이 가이드는 Spring을 사용하여 LDAP 서버에 인증하는 과정을 안내합니다.<br>
 - Spring Security를 사용하여 LDAP 서버에 인증하는 예제를 만드는 가이드 입니다. <br>
+- LDAP란? <br>
+-> 경량 디렉터리 액세스 프로토콜로 네트워크에서 디렉터리 서비스에 접근하기 위해 사용되는 프로토콜이다.
 
 
 9. [Redis](messagingredis/README.md)<br>
-* 이 가이드는 Spring Data Redis를 사용하여 Redis로 보낸 메시지를 게시하고 구독하는 과정을 안내합니다.<br>
-* Spring Data Redis를 사용하여 메시지를 보내고 받는 예제를 만드는 가이드 입니다.
-* Resdis란? <br>
+- 이 가이드는 Spring Data Redis를 사용하여 Redis로 보낸 메시지를 게시하고 구독하는 과정을 안내합니다.<br>
+- Spring Data Redis를 사용하여 메시지를 보내고 받는 예제를 만드는 가이드 입니다.
+- Resdis란? <br>
 -> 메모리 기반의 Key-Value 구조 데이터 관리 시스템으로, 오픈 소스이다.
 
 10. [Rabbitmq](messagingrabbitmq/README.md)<br>
-* 이 가이드는 메시지를 게시하고 구독하는 RabbitMQ AMQP 서버를 설정하고 해당 RabbitMQ 서버와 상호 작용할 Spring Boot 애플리케이션을 만드는 과정을 안내합니다.
-* Spring AMQP의 RabbitTemplate을 사용하여 메시지를 게시하고 MessageListenerAdapter를 사용하여 POJO에서 메시지를 구독하는 애플리케이션을 빌드합니다.
-* RabbitMQ란? <br>
-  -> AMQP를 구현한 오픈소스 메시지 브로커입니다.
-* AMQP란? <br>
+- 이 가이드는 메시지를 게시하고 구독하는 RabbitMQ AMQP 서버를 설정하고 해당 RabbitMQ 서버와 상호 작용할 Spring Boot 애플리케이션을 만드는 과정을 안내합니다.
+- Spring AMQP의 RabbitTemplate을 사용하여 메시지를 게시하고 MessageListenerAdapter를 사용하여 POJO에서 메시지를 구독하는 애플리케이션을 빌드합니다.
+- RabbitMQ란? <br>
+-> AMQP를 구현한 오픈소스 메시지 브로커입니다.
+- AMQP란? <br>
   -> 메시지 지향 미들웨어를 위한 개방형 표준 프로토콜로, 메시지 기반 애플리케이션을 개발하기 위한 라이브러리입니다.
 
 11. [Neo4j](accessingdataneo4j/README.md)<br>
@@ -204,14 +203,20 @@
 - MongoDB란? <br>
 - MongoDB는 문서 지향적 데이터베이스로, 데이터를 JSON과 같은 동적 스키마 형식으로 저장합니다.
 
-
 38. [Gemfire Rest](accessing-gemfire-data-rest/README.md) <br>
+- 이 가이드는 하이퍼미디어 기반 REST-ful 프런트엔드를 통해 Apache Geode에 저장된 데이터에 액세스하는 애플리케이션을 만드는 과정을 안내합니다.
+- 하이퍼미디어 기반 REST-ful 프런트엔드를 통해 Apache Geode에 저장된 데이터에 액세스하는 예제를 만드는 가이드 입니다.
 
 39. [Producing SOAP](producing-web-service-maven/README.md) <br>
 - 이 가이드는 Spring을 사용하여 SOAP 기반 웹 서비스 서버를 만드는 과정을 안내합니다.
 - Spring을 사용하여 SOAP 기반 웹 서비스 서버를 만드는 예제를 만드는 가이드 입니다.
 
-40.
+40. [Caching Data](caching/README.md) <br>
+- 이 가이드는 Spring 관리 빈에서 캐싱을 활성화하는 과정을 안내합니다.
+- Spring 관리 빈에서 캐싱을 활성화하는 예제를 만드는 가이드 입니다.
+- 캐싱이란? <br>
+- 캐싱은 데이터나 값을 미리 복사해 놓는 임시 장소를 가리킵니다.
+- 캐시는 데이터를 빠르게 가져오기 위해 데이터를 저장해 놓는 장소입니다.
 
 41.
 
